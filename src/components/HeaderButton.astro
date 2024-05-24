@@ -1,0 +1,16 @@
+---
+const props = Astro.props;
+---
+
+<a
+  href={props.href}
+  class="mb-2 mr-2 inline-flex scale-90 cursor-pointer
+flex-row items-center justify-center gap-x-2 rounded-lg
+px-5 py-2.5 text-center font-medium text-white opacity-90
+transition-all duration-200 ease-in-out hover:scale-110 hover:bg-sky-600 hover:opacity-100
+hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#1da1f2]/50 dark:focus:ring-[#1da1f2]/55"
+>
+  <slot name="before" />
+  <slot />
+  <slot name="after" />
+</a>

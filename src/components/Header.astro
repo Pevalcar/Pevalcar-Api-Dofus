@@ -1,0 +1,46 @@
+---
+import HeaderButton from "./HeaderButton.astro";
+
+const props = Astro.props;
+---
+
+<header class="mx-auto px-4 py-8 lg:px-6 lg:py-16">
+  <nav class="flex items-center justify-between">
+    <HeaderButton href="/" class="text-white">
+      <svg
+        slot="before"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M0 0h24v24H0z" stroke="none"></path><path
+          d="M19 14.083c0 4.154-2.966 6.74-7 6.917-4.2 0-7-2.763-7-6.917C5 8.545 8.5 2.993 12 3s7 5.545 7 11.083"
+        ></path><path d="m12 3-1.5 5 3.5 2.5-2 3.5"></path></svg
+      >
+      Pevalcar Api
+    </HeaderButton>
+    <HeaderButton href="/almanaxApi" class="text-white">
+      <svg
+        slot="after"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="M0 0h24v24H0z" stroke="none"></path><path
+          d="M20 6v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2M10 16h6"
+        ></path><path d="M11 11a2 2 0 1 0 4 0 2 2 0 1 0-4 0M4 8h3m-3 4h3m-3 4h3"
+        ></path></svg
+      >Almanax Api</HeaderButton
+    >
+  </nav>
+</header>

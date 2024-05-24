@@ -1,0 +1,38 @@
+---
+import { type AlmanaxResponce } from "../types/api";
+import Layout from "../layout/Layout.astro";
+const res = await fetch(
+  "https://pevalcar-apis.netlify.app/api/almanax/dofus/es"
+);
+const data = (await res.json()) as Array<AlmanaxResponce>;
+---
+
+<Layout title={"title"} class="h-screen w-screen bg-gray-900">
+  <section class="flex items-center justify-center">
+    <h1 class="col-auto text-6xl font-bold text-white">
+      Bienvenido a la API de Almanax
+    </h1>
+  </section>
+  <section class="flex items-center justify-center">
+    <h3 class="col-auto text-center text-3xl text-white">
+      Api desarrollada por <a href="https://x.com/pevalcar"> Pevalcar </a>
+    </h3>
+  </section>
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      data.map((item) => (
+        <>
+          <article class="text-center text-3xl text-white">
+            {" "}
+            {item.item}{" "}
+          </article>
+          <img
+            src={
+              "https://static.ankama.com/dofus/www/game/items/200/164174.w75h75.png"
+            }
+          />
+        </>
+      ))
+    }
+  </div>
+</Layout>
