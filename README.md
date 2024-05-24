@@ -1,26 +1,25 @@
 
 # **API de Almanax**
 
+
+
 <a href="https://www.buymeacoffee.com/perroaa94g" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 217/2px !important;" ></a>
 
 Creada por **pevalcar**
 
-## **Instalación**
+## TODO
+- AlmanaxDB
+  - [x] ES 
+  - [x] EN
+  - [x] FR
+  - [ ] DE
+  - [ ] IT
+  - [ ] JA
+  - [ ] PT
+- [ ] DofusDB
+- [ ] DofusTouchDB
 
-Para instalar y configurar la API, sigue estos pasos:
 
-1. Instalar las dependencias necesarias:
-   ```bash
-   npm i
-   ```
-2. Instalar Netlify CLI globalmente:
-   ```bash
-   npm install netlify-cli -g
-   ```
-3. Inicializar Netlify:
-   ```bash
-   netlify init
-   ```
 
 ## **Usos**
 Esta es una API para hacer peticiones relacionadas con los eventos de Almanax en los juegos Dofus y Dofus Touch.
