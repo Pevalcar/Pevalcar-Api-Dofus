@@ -1,10 +1,10 @@
 ---
 import HeaderButton from "./HeaderButton.astro";
-
-const props = Astro.props;
 ---
 
-<header class="mx-auto px-4 py-8 lg:px-6 lg:py-16">
+<header
+  class="mx-auto rounded-lg border border-gray-800 px-4 py-8 lg:px-16 lg:py-3"
+>
   <nav class="flex items-center justify-between">
     <HeaderButton href="/" class="text-white">
       <svg
@@ -24,7 +24,7 @@ const props = Astro.props;
       >
       Pevalcar Api
     </HeaderButton>
-    <HeaderButton href="/almanaxApi" class="text-white">
+    <HeaderButton href="/almanaxApi" class="text-3xl text-white">
       <svg
         slot="after"
         xmlns="http://www.w3.org/2000/svg"

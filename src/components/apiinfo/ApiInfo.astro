@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props as Props;
+---
+
+<>
+  <div
+    class="flex w-full flex-row items-center justify-center rounded border border-b-blue-200 py-2 text-white"
+  >
+    <h3
+      class="w-full cursor-pointer items-center p-1 text-sm font-bold text-white"
+      operations-tag-almanax
+      data-tag="almanax"
+      data-is-open="true"
+    >
+      <a href="#/almanax">
+        <span>{title}</span>
+      </a>
+    </h3>
+    <button class="relative items-center text-white"
+      ><svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="top-1 h-5 w-5 align-middle"
+        ><path d="M0 0h24v24H0z" stroke="none"></path><path
+          d="M17 13V7l-5 4-5-4v6l5 4z"></path></svg
+      >
+    </button>
+  </div>
+  <div class="w-full border border-b-blue-200">
+    <slot />
+  </div>
+</>

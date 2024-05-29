@@ -1,0 +1,24 @@
+---
+import { type AlmanaxResponce } from "../types/api";
+
+interface Props {
+  item: AlmanaxResponce;
+}
+const { item } = Astro.props as Props;
+const gameData = item.game === "dofus" ? "Dofus" : "Dofus Touch";
+---
+
+<a
+  href="#"
+  class="flex flex-col rounded-lg border
+   border-gray-700 bg-gray-800 shadow-md transition hover:scale-105 hover:border-gray-500 hover:bg-gray-700"
+>
+  <img src={item.itemPictureUrl} alt="" />
+  <h2 class="text-white">Fecha: {item.date}</h2>
+  <h2 class="text-white">Item: {item.item}</h2>
+  <h2 class="text-white">Cantidad: {item.itemQuantity}</h2>
+  <h2 class="text-white">Precio: {item.description}</h2>
+  <h2 class="text-white">Bonus: {item.bonus}</h2>
+  <h2 class="text-white">Bonus: {item.language}</h2>
+  <h2 class="text-white">Bonus: {item.game}</h2>
+</a>

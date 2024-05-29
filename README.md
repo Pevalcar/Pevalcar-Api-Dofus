@@ -9,6 +9,8 @@ Creada por **pevalcar**
 ## TODO
 
 - AlmanaxDB
+  - [ ] Up images
+  - [ ] Bonus type
   - [x] ES
   - [x] EN
   - [x] FR

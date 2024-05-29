@@ -1,0 +1,51 @@
+---
+import ApiInfo from "./ApiInfo.astro";
+import ItemApi from "../../components/apiinfo/ItemApi.jsx";
+import CopySvg from "../../icons/Copysvg.astro";
+
+interface Props {
+  title: string;
+  endpoint: string;
+  metodo: string;
+  example: string;
+  description: string;
+}
+
+const { title, endpoint, metodo, example, description } = Astro.props as Props;
+---
+
+<div class="flex flex-col py-2">
+  <h1 class="py-2 text-2xl text-yellow-600">
+    {title}
+  </h1>
+  <ul class="py-5">
+    <li>
+      <strong class="text-yellow-600">Endpoint</strong>: <code>
+        {endpoint}</code
+      >
+    </li>
+    <li><strong class="text-yellow-600">Método</strong>: {metodo}</li>
+    <li>
+      <strong class="text-yellow-600">Descripción</strong>: {description}
+    </li>
+    <li>
+      <strong class="text-yellow-600">Ejemplo</strong>:<a
+        class="hover:text-yellow-400"
+        href={example}
+        target="_blank"
+      >
+        {example}
+      </a>
+    </li>
+  </ul>
+  <ApiInfo title="Obtener todos los datos de un juego">
+    <ItemApi
+      client:visible
+      title={metodo}
+      apiUrl={endpoint}
+      description={description}
+    >
+      <CopySvg />
+    </ItemApi>
+  </ApiInfo>
+</div>

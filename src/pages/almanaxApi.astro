@@ -1,38 +1,134 @@
 ---
-import { type AlmanaxResponce } from "../types/api";
+import Bandage from "../components/almanax/Bandage.astro";
+import SeccionApi from "../components/apiinfo/SeccionApi.astro";
+import TodoItem from "../components/todo/TodoItem.astro";
+import TodoList from "../components/todo/TodoList.astro";
+import Github from "../icons/Github.astro";
 import Layout from "../layout/Layout.astro";
-const res = await fetch(
-  "https://pevalcar-apis.netlify.app/api/almanax/dofus/es"
-);
-const data = (await res.json()) as Array<AlmanaxResponce>;
+
+const json = {
+  date: "String",
+  itemQuantity: "Number",
+  item: "String",
+  description: "String",
+  bonus: "String",
+  itemPictureUrl: "String",
+  language: "String",
+  game: "String",
+};
+const version = "0.1.0";
+const title = "Alamanax Api";
 ---
 
-<Layout title={"title"} class="h-screen w-screen bg-gray-900">
-  <section class="flex items-center justify-center">
-    <h1 class="col-auto text-6xl font-bold text-white">
-      Bienvenido a la API de Almanax
-    </h1>
-  </section>
-  <section class="flex items-center justify-center">
-    <h3 class="col-auto text-center text-3xl text-white">
-      Api desarrollada por <a href="https://x.com/pevalcar"> Pevalcar </a>
+<Layout title={title} class="h-screen w-screen bg-gray-900 p-16">
+  <h2
+    class="m-5 border-2 bg-gray-700 text-center font-serif text-3xl text-yellow-500"
+  >
+    {title}
+    <span class="border-inherit">
+      <Bandage>{version}</Bandage>
+    </span>
+  </h2>
+  <div class="text-white">
+    <p>
+      Creada por
+      <a href="https://github.com/Pevalcar/Pevalcar-Api-Dofus" target="_blank"
+        ><strong class="text-yellow-500 hover:text-yellow-400">Pevalcar</strong
+        ></a
+      >
+    </p>
+    <h1 class="py-2 text-2xl text-yellow-500">Contenido</h1>
+
+    <TodoList>
+      <TodoItem> AlmanaxDB </TodoItem>
+      <TodoList>
+        <TodoItem done>ES</TodoItem>
+        <TodoItem done>EN</TodoItem>
+        <TodoItem done>FR</TodoItem>
+        <TodoItem>DE</TodoItem>
+        <TodoItem>IT</TodoItem>
+        <TodoItem>JA</TodoItem>
+        <TodoItem>PT</TodoItem>
+      </TodoList>
+    </TodoList>
+    <h2 class="py-2 text-2xl text-yellow-500"><strong>Usos</strong></h2>
+    <p>
+      Esta es una API para hacer peticiones relacionadas con los eventos de
+      Almanax en los juegos Dofus y Dofus Touch.
+    </p>
+    <h1 class="p-2 text-2xl text-yellow-500"><strong>Endpoints</strong></h1>
+    <SeccionApi
+      title="Obtener todos los datos de un juego"
+      endpoint="/api/almanax/{game}"
+      metodo="GET"
+      description="Retorna todos los datos del juego especificado (dofus o dofus-touch)."
+      example="https://pevalcar-apis.netlify.app/api/almanax/dofus"
+    />
+    <SeccionApi
+      title="Obtener datos específicos de un juego y un idioma"
+      endpoint="/api/almanax/{game}/{lang}"
+      metodo="GET"
+      description="Retorna todos los datos del juego y el idioma especificados."
+      example="https://pevalcar-apis.netlify.app/api/almanax/dofus/es"
+    />
+    <SeccionApi
+      title="Obtener datos específicos de un juego, un idioma y una fecha"
+      endpoint="/api/almanax/{game}/{lang}/{date}"
+      metodo="GET"
+      description="Retorna los datos del juego, idioma y fecha especificados."
+      example="https://pevalcar-apis.netlify.app/api/almanax/dofus/es/2024-10-10"
+    />
+
+    <SeccionApi
+      title="Obtener datos específicos de un juego, un idioma y una fecha"
+      endpoint="/api/almanax/{game}/{lang}/{date}"
+      metodo="GET"
+      description="Retorna los datos del juego, idioma y fecha especificados."
+      example="https://pevalcar-apis.netlify.app/api/almanax/dofus/es/2024-10-10"
+    />
+    <SeccionApi
+      title="Obtener los idiomas disponibles"
+      endpoint="/api/almanax/langs"
+      metodo="GET"
+      description="Retorna una lista de los idiomas disponibles."
+      example="https://pevalcar-apis.netlify.app/api/almanax/langs"
+    />
+    <h2 class="py-2 text-2xl text-yellow-500">
+      <strong>Descripción de la API</strong>
+    </h2>
+    <p>
+      Esta API proporciona información sobre los eventos diarios de Almanax para
+      los juegos Dofus y Dofus Touch, permitiendo filtrar la información por
+      juego, idioma y fecha.
+    </p>
+    <h3 class="py-2 text-2xl text-yellow-500">
+      <strong>Ejemplo de respuesta</strong>
     </h3>
-  </section>
-  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-    {
-      data.map((item) => (
-        <>
-          <article class="text-center text-3xl text-white">
-            {" "}
-            {item.item}{" "}
-          </article>
-          <img
-            src={
-              "https://static.ankama.com/dofus/www/game/items/200/164174.w75h75.png"
-            }
-          />
-        </>
-      ))
-    }
+    <p>
+      La API puede retornar una lista de objetos o un solo objeto con el
+      siguiente formato:
+    </p>
+    <pre
+      class="flex w-1/3 items-center rounded-lg border border-gray-500 bg-gray-700">
+      <h1 class="text-white justify-items-center ps-3.5">
+        {JSON.stringify(json, null, 2)}
+      </h1>
+    </pre>
+    <div class="text-white">
+      <div>
+        <p class="p-3">Tu idioma falta, proximamente te ayudare!</p>
+        <div class="flex flex-row items-center">
+          <p class="p-3">para cualquier sugerencia duda o error</p>
+          <Github class="m-2" />
+          <a
+            class="m-3 text-2xl"
+            href="https://github.com/Pevalcar/Pevalcar-Api-Dofus"
+            target="_blank"
+          >
+            Github
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </Layout>

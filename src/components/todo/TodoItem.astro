@@ -1,0 +1,13 @@
+---
+import Box from "../../icons/Box.astro";
+import CheckBox from "../../icons/CheckBox.astro";
+const props = Astro.props;
+const { done } = props;
+---
+
+<div class="flex w-full flex-row items-center px-3 text-white">
+  <div class="px-3">
+    {done ? <CheckBox /> : <Box />}
+  </div>
+  <slot class="p-3" />
+</div>
