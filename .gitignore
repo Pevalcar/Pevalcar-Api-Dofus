@@ -1,3 +1,5 @@
 node_modules
 Astro.code-profile
-pnpm-lock.yaml
+
+# Local Netlify folder
+.netlify
